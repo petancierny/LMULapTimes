@@ -376,6 +376,14 @@ h1 {
   object-fit: contain;
 }
 
+.logo-image {
+  width: min(100%, 320px);
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.45));
+}
+
 .layout-label {
   position: absolute;
   bottom: 12px;

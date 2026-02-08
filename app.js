@@ -51,6 +51,16 @@ const layoutMap = {
   "Spa": "data/layouts/Spa_Francorchamps_2007.jpg",
 };
 
+
+const logoMap = {
+  "Bahrain (wec)": "data/logos/Bahrain_International_Circuit_logo.png",
+  "Circuit de la Sarthe (straight)": "data/logos/circuitdelasarthelogo.png",
+  "Fuji (chicane)": "data/logos/Logo-Fuji.png",
+  "Monza (curvagrande)": "data/logos/Autodromo_Nazionale_Monza_circuit_logo.png",
+  "Qatar (short)": "data/logos/qatarlogo.png",
+};
+
+
 const state = {
   data: [],
   tracks: [],
@@ -266,6 +276,17 @@ function renderLayout(record) {
     elements.layoutStage.innerHTML = `
       <div class="layout-inner">
         <img class="track-image" src="${asset}" alt="${record.track} layout" />
+        <div class="layout-label">${record.track}</div>
+      </div>
+    `;
+    return;
+  }
+
+  const logo = logoMap[record.track];
+  if (logo) {
+    elements.layoutStage.innerHTML = `
+      <div class="layout-inner">
+        <img class="logo-image" src="${logo}" alt="${record.track} logo" />
         <div class="layout-label">${record.track}</div>
       </div>
     `;
