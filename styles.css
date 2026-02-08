@@ -366,6 +366,13 @@ h1 {
   height: auto;
 }
 
+.track-image {
+  width: min(100%, 420px);
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+}
+
 .layout-label {
   position: absolute;
   bottom: 12px;

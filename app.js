@@ -31,6 +31,26 @@ const paceLegend = [
 const classOrder = ["LMH", "LMP2wec", "LMP2elms", "LMP3", "LMGT3", "GTE"];
 const classTokens = new Set(classOrder);
 
+
+const layoutMap = {
+  "Bahrain (endurance)": "data/layouts/Bahrain_International_Circuit--Endurance_Circuit.svg",
+  "Bahrain (outer)": "data/layouts/Bahrain_International_Circuit--Outer_Circuit.svg",
+  "Bahrain (paddock)": "data/layouts/Bahrain_International_Circuit--Paddock_Circuit.svg",
+  "COTA": "data/layouts/COTA.svg",
+  "COTA (national)": "data/layouts/COTA_National_Circuit.png",
+  "Circuit de la Sarthe": "data/layouts/Circuit_de_la_Sarthe_track_map.svg",
+  "Fuji (classic)": "data/layouts/Circuit_Fuji.svg",
+  "Imola": "data/layouts/Imola_2009.svg",
+  "Interlagos": "data/layouts/Circuit_Interlagos.svg",
+  "Monza": "data/layouts/Monza_track_map.svg",
+  "Paul Ricard": "data/layouts/Paul_Ricard.svg",
+  "Portimao": "data/layouts/Portimao.svg",
+  "Qatar": "data/layouts/Qatar.svg",
+  "Sebring": "data/layouts/Sebring_International_Raceway.svg",
+  "Silverstone": "data/layouts/Silverstone_Circuit_2020.png",
+  "Spa": "data/layouts/Spa_Francorchamps_2007.jpg",
+};
+
 const state = {
   data: [],
   tracks: [],
@@ -238,6 +258,17 @@ function renderLegend() {
 function renderLayout(record) {
   if (!record) {
     elements.layoutStage.textContent = "Select a track to preview the layout.";
+    return;
+  }
+
+  const asset = layoutMap[record.track];
+  if (asset) {
+    elements.layoutStage.innerHTML = `
+      <div class="layout-inner">
+        <img class="track-image" src="${asset}" alt="${record.track} layout" />
+        <div class="layout-label">${record.track}</div>
+      </div>
+    `;
     return;
   }
 
