@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LMU Lap Times</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">LMU Lap Time Benchmarks</p>
+          <h1>Choose a track and class to gauge your pace.</h1>
+          <p class="subtitle">
+            Compare your laps against curated percentage targets, highlight the fastest cars, and
+            keep your progress visible at a glance.
+          </p>
+        </div>
+        <div class="hero__meta">
+          <div class="meta-card">
+            <span class="meta-label">Data updated</span>
+            <span class="meta-value" id="lastUpdated">—</span>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Patch focus</span>
+            <span class="meta-value" id="patchValue">—</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card controls" aria-label="Track and class selection">
+          <div>
+            <label class="field-label" for="trackSelect">Track</label>
+            <select id="trackSelect" class="select"></select>
+          </div>
+          <div>
+            <label class="field-label" for="classSelect">Car class</label>
+            <select id="classSelect" class="select"></select>
+          </div>
+          <div class="status" id="statusLine">Loading data…</div>
+        </section>
+
+        <section class="card layout-card" aria-label="Track layout">
+          <div class="card-header">
+            <h2>Track layout</h2>
+            <span class="card-subtitle" id="trackName">—</span>
+          </div>
+          <div class="layout-stage" id="layoutStage"></div>
+        </section>
+
+        <section class="card benchmarks" aria-label="Lap time targets">
+          <div class="card-header">
+            <h2>Lap time targets</h2>
+            <span class="card-subtitle">Percent of benchmark pace</span>
+          </div>
+          <div class="percent-grid" id="percentGrid"></div>
+          <div class="legend" id="paceLegend"></div>
+        </section>
+
+        <section class="card stats" aria-label="Fastest car">
+          <div class="card-header">
+            <h2>Fastest car</h2>
+            <span class="card-subtitle">Best benchmark lap in class</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-label">Car</span>
+            <span class="stat-value" id="fastestCar">—</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-block">
+              <span class="stat-label">Lap time</span>
+              <span class="stat-value" id="fastestLap">—</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-label">Class average</span>
+              <span class="stat-value" id="classAverage">—</span>
+            </div>
+          </div>
+          <div class="stat-block">
+            <span class="stat-label">Best / avg delta</span>
+            <span class="stat-value" id="bestAvg">—</span>
+          </div>
+        </section>
+
+        <section class="card your-pace" aria-label="Your lap time">
+          <div class="card-header">
+            <h2>Your lap</h2>
+            <span class="card-subtitle">Paste your best lap to compare</span>
+          </div>
+          <div class="field">
+            <label class="field-label" for="yourTime">Lap time (m:ss.xx)</label>
+            <input id="yourTime" class="input" placeholder="1:58.73" autocomplete="off" />
+          </div>
+          <div class="pace-output">
+            <div class="pace-pill" id="pacePill">—</div>
+            <div>
+              <div class="pace-label">Your pace</div>
+              <div class="pace-value" id="paceValue">—</div>
+              <div class="pace-delta" id="paceDelta">—</div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Built for quick, readable comparisons. Replace the data to keep it fresh.</p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
