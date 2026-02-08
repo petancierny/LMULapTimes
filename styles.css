@@ -350,3 +350,58 @@ h1 {
     padding: 18px;
   }
 }
+
+
+.layout-inner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.track-svg {
+  width: min(100%, 420px);
+  height: auto;
+}
+
+.layout-label {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.pace-pill[data-pace="alien"] {
+  background: rgba(245, 107, 58, 0.18);
+  color: var(--accent-strong);
+}
+
+.pace-pill[data-pace="competitive"] {
+  background: rgba(255, 199, 111, 0.22);
+  color: #9a4b15;
+}
+
+.pace-pill[data-pace="good"] {
+  background: rgba(31, 114, 137, 0.16);
+  color: var(--accent-cool);
+}
+
+.pace-pill[data-pace="midpack"] {
+  background: rgba(93, 140, 119, 0.18);
+  color: #2f5b46;
+}
+
+.pace-pill[data-pace="tail-ender"],
+.pace-pill[data-pace="offline"] {
+  background: rgba(27, 26, 23, 0.12);
+  color: var(--ink);
+}

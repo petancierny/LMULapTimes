@@ -204,7 +204,7 @@ function render() {
 
   renderPercentGrid(record);
   renderLegend();
-  renderLayoutPlaceholder(record);
+  renderLayout(record);
   updateUserPace();
 
   elements.statusLine.textContent = record
@@ -235,12 +235,77 @@ function renderLegend() {
     .join("");
 }
 
-function renderLayoutPlaceholder(record) {
+function renderLayout(record) {
   if (!record) {
     elements.layoutStage.textContent = "Select a track to preview the layout.";
     return;
   }
-  elements.layoutStage.textContent = "Track map will render here.";
+
+  const svg = buildTrackSvg(record.track);
+  elements.layoutStage.innerHTML = `
+    <div class="layout-inner">
+      ${svg}
+      <div class="layout-label">${record.track}</div>
+    </div>
+  `;
+}
+
+function buildTrackSvg(trackName) {
+  const seed = hashString(trackName);
+  const rand = mulberry32(seed);
+  const pointCount = 12 + Math.floor(rand() * 6);
+  const baseRadius = 30 + rand() * 8;
+  const variance = 10 + rand() * 8;
+  const squish = 0.82 + rand() * 0.2;
+
+  const points = [];
+  for (let i = 0; i < pointCount; i += 1) {
+    const angle = (i / pointCount) * Math.PI * 2 + rand() * 0.4;
+    const radius = baseRadius + (rand() * 2 - 1) * variance;
+    const x = 50 + Math.cos(angle) * radius;
+    const y = 50 + Math.sin(angle) * radius * squish;
+    points.push({ x, y });
+  }
+
+  let path = `M ${points[0].x.toFixed(2)} ${points[0].y.toFixed(2)}`;
+  for (let i = 1; i < points.length; i += 1) {
+    path += ` L ${points[i].x.toFixed(2)} ${points[i].y.toFixed(2)}`;
+  }
+  path += " Z";
+
+  const start = points[0];
+
+  return `
+    <svg class="track-svg" viewBox="0 0 100 100" role="img" aria-label="${trackName} layout">
+      <defs>
+        <linearGradient id="trackStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1f7289" />
+          <stop offset="100%" stop-color="#f56b3a" />
+        </linearGradient>
+      </defs>
+      <path d="${path}" fill="none" stroke="url(#trackStroke)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="${start.x.toFixed(2)}" cy="${start.y.toFixed(2)}" r="3" fill="#1b1a17" />
+      <circle cx="${start.x.toFixed(2)}" cy="${start.y.toFixed(2)}" r="1.4" fill="#f7f1e8" />
+    </svg>
+  `;
+}
+
+function hashString(value) {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash << 5) - hash + value.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
+function mulberry32(seed) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
 
 function updateUserPace() {
@@ -267,12 +332,17 @@ function updateUserPace() {
   const delta = ((userSeconds - baseSeconds) / baseSeconds) * 100;
   const paceLabel = paceLabelForPercent(percent);
 
-  setPaceOutput(`${paceLabel}`, `${percent.toFixed(2)}%`, `${delta >= 0 ? "+" : ""}${delta.toFixed(2)}%`);
+  setPaceOutput(
+    paceLabel,
+    `${percent.toFixed(2)}%`,
+    `${delta >= 0 ? "+" : ""}${delta.toFixed(2)}%`
+  );
   highlightPercentBucket(percent);
 }
 
 function setPaceOutput(pill, value, delta) {
   elements.pacePill.textContent = pill;
+  elements.pacePill.dataset.pace = pill.toLowerCase().replace(/\s+/g, "-");
   elements.paceValue.textContent = value;
   elements.paceDelta.textContent = delta;
 }
@@ -290,7 +360,8 @@ function parseTimeToSeconds(time) {
   } else if (segments.length === 2) {
     seconds = Number(segments[0]) * 60 + Number(segments[1]);
   } else if (segments.length === 3) {
-    seconds = Number(segments[0]) * 3600 + Number(segments[1]) * 60 + Number(segments[2]);
+    seconds =
+      Number(segments[0]) * 3600 + Number(segments[1]) * 60 + Number(segments[2]);
   }
 
   if (!Number.isFinite(seconds) || seconds <= 0) {
