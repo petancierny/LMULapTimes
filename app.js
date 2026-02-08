@@ -57,6 +57,7 @@ const logoMap = {
   "Circuit de la Sarthe (straight)": "data/logos/circuitdelasarthelogo.png",
   "Fuji (chicane)": "data/logos/Logo-Fuji.png",
   "Monza (curvagrande)": "data/logos/Autodromo_Nazionale_Monza_circuit_logo.png",
+  "Sebring (school)": "data/logos/Sebring12_IR.png",
   "Qatar (short)": "data/logos/qatarlogo.png",
 };
 
