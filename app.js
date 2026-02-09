@@ -16,6 +16,9 @@ const elements = {
   pacePill: document.getElementById("pacePill"),
   paceValue: document.getElementById("paceValue"),
   paceDelta: document.getElementById("paceDelta"),
+  guideSubtitle: document.getElementById("guideSubtitle"),
+  guideStatus: document.getElementById("guideStatus"),
+  guideContent: document.getElementById("guideContent"),
 };
 
 const percentTargets = [100, 101, 102, 103, 104, 105, 106, 107];
@@ -60,6 +63,14 @@ const logoMap = {
   "Sebring (school)": "data/logos/Sebring12_IR.png",
   "Qatar (short)": "data/logos/qatarlogo.png",
 };
+
+
+const guideMap = {
+  "Bahrain (wec)": "bahrain-wec-lmgt3",
+  "Monza": "monza-lmgt3",
+};
+
+
 
 
 const state = {
@@ -233,9 +244,13 @@ function render() {
   elements.classAverage.textContent = record?.classAvg || "—";
   elements.bestAvg.textContent = record?.bestAvg || "—";
 
+  elements.guideSubtitle.textContent =
+    state.selectedClass === "LMGT3" ? "LMGT3 focus" : "LMGT3 guide only";
+
   renderPercentGrid(record);
   renderLegend();
   renderLayout(record);
+  renderGuide(record);
   updateUserPace();
 
   elements.statusLine.textContent = record
@@ -303,6 +318,115 @@ function renderLayout(record) {
   `;
 }
 
+
+function renderGuide(record) {
+  if (!record) {
+    elements.guideStatus.textContent = "Select a track to load its guide.";
+    elements.guideContent.innerHTML = "";
+    return;
+  }
+
+  const guides = window.LAPTIME_GUIDES || {};
+  const guideKey = guideMap[record.track];
+  const guideText = guideKey ? guides[guideKey] : null;
+
+  if (!guideText) {
+    elements.guideStatus.textContent = "Guide not available yet for this track.";
+    elements.guideContent.innerHTML = "";
+    return;
+  }
+
+  elements.guideStatus.textContent =
+    state.selectedClass === "LMGT3"
+      ? "LMGT3 guide loaded from LMU-specific sources."
+      : "LMGT3 guide only - switch class for accurate use.";
+
+  elements.guideContent.innerHTML = renderMarkdown(guideText);
+}
+
+function renderMarkdown(markdown) {
+  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+  const html = [];
+  let inList = false;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      if (inList) {
+        html.push("</ul>");
+        inList = false;
+      }
+      continue;
+    }
+
+    if (trimmed.startsWith("### ")) {
+      if (inList) {
+        html.push("</ul>");
+        inList = false;
+      }
+      html.push(`<h3>${formatInline(trimmed.slice(4))}</h3>`);
+      continue;
+    }
+
+    if (trimmed.startsWith("## ")) {
+      if (inList) {
+        html.push("</ul>");
+        inList = false;
+      }
+      html.push(`<h2>${formatInline(trimmed.slice(3))}</h2>`);
+      continue;
+    }
+
+    if (trimmed.startsWith("# ")) {
+      if (inList) {
+        html.push("</ul>");
+        inList = false;
+      }
+      html.push(`<h1>${formatInline(trimmed.slice(2))}</h1>`);
+      continue;
+    }
+
+    if (trimmed.startsWith("- ")) {
+      if (!inList) {
+        html.push("<ul>");
+        inList = true;
+      }
+      html.push(`<li>${formatInline(trimmed.slice(2))}</li>`);
+      continue;
+    }
+
+    if (inList) {
+      html.push("</ul>");
+      inList = false;
+    }
+
+    html.push(`<p>${formatInline(trimmed)}</p>`);
+  }
+
+  if (inList) {
+    html.push("</ul>");
+  }
+
+  return html.join("");
+}
+
+function formatInline(text) {
+  let safe = escapeHtml(text);
+  safe = safe.replace(/`([^`]+)`/g, "<code>$1</code>");
+  safe = safe.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  safe = safe.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return safe;
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function buildTrackSvg(trackName) {
   const seed = hashString(trackName);
   const rand = mulberry32(seed);
@@ -332,13 +456,13 @@ function buildTrackSvg(trackName) {
     <svg class="track-svg" viewBox="0 0 100 100" role="img" aria-label="${trackName} layout">
       <defs>
         <linearGradient id="trackStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1f7289" />
-          <stop offset="100%" stop-color="#f56b3a" />
+          <stop offset="0%" stop-color="var(--accent-cool)" />
+          <stop offset="100%" stop-color="var(--accent)" />
         </linearGradient>
       </defs>
       <path d="${path}" fill="none" stroke="url(#trackStroke)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
-      <circle cx="${start.x.toFixed(2)}" cy="${start.y.toFixed(2)}" r="3" fill="#1b1a17" />
-      <circle cx="${start.x.toFixed(2)}" cy="${start.y.toFixed(2)}" r="1.4" fill="#f7f1e8" />
+      <circle cx="${start.x.toFixed(2)}" cy="${start.y.toFixed(2)}" r="3" fill="var(--ink)" />
+      <circle cx="${start.x.toFixed(2)}" cy="${start.y.toFixed(2)}" r="1.4" fill="var(--bg)" />
     </svg>
   `;
 }

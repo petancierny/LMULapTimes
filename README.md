@@ -19,6 +19,15 @@ No build step is required. All data is embedded via `data/laptimes.js`.
 ## Updating The Data
 If you replace the CSV with a new export, regenerate the embedded JS:
 
+
+## Track Guides
+Guides live as markdown in `guides/` and are bundled for the browser into `data/guides.js`.
+
+Rebuild guides after editing markdown:
+
+```bash
+python3 /Users/petancierny/Documents/GitHub/Personal/LMULapTimes/scripts/build_guides.py
+```
 ```bash
 python3 /Users/petancierny/Documents/GitHub/Personal/LMULapTimes/scripts/build_data.py
 ```

@@ -423,3 +423,77 @@ h1 {
   background: rgba(0, 0, 0, 0.5);
   color: var(--ink);
 }
+
+.guide {
+  grid-column: span 12;
+  display: grid;
+  gap: 16px;
+}
+
+.guide-status {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.guide-content {
+  line-height: 1.6;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.guide-content h1,
+.guide-content h2,
+.guide-content h3 {
+  margin: 18px 0 8px;
+}
+
+.guide-content h1 {
+  font-size: 24px;
+}
+
+.guide-content h2 {
+  font-size: 19px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.guide-content h3 {
+  font-size: 17px;
+  color: var(--accent-strong);
+}
+
+.guide-content p {
+  margin: 0 0 12px;
+}
+
+.guide-content ul {
+  margin: 0 0 14px;
+  padding-left: 18px;
+}
+
+.guide-content li {
+  margin-bottom: 6px;
+}
+
+.guide-content strong {
+  color: var(--accent-cool);
+}
+
+.guide-content code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.guide-content a {
+  color: var(--accent-cool);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(54, 199, 209, 0.4);
+}
