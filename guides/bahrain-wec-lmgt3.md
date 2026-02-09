@@ -1,8 +1,8 @@
 # Bahrain (WEC) - LMGT3 Track Guide
 
 ## Source Coverage
-- Source: RaceControl News Bahrain track guide (published 2024-11-08)
-- Patch: not stated in source (guide predates LMU v1.2)
+- Sources: https://news.racecontrol.gg/tracks/le-mans-ultimate-bahrain-track-guide/, https://news.racecontrol.gg/tracks/the-2025-track-guide-list-for-le-mans-ultimate/
+- Patch: not stated in sources (track guide published 2024-11-08)
 - Track layout: 15 turns
 
 ## Turn-by-Turn
@@ -84,3 +84,4 @@
 
 ## Sources
 - https://news.racecontrol.gg/tracks/le-mans-ultimate-bahrain-track-guide/
+- https://news.racecontrol.gg/tracks/the-2025-track-guide-list-for-le-mans-ultimate/

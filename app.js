@@ -66,8 +66,28 @@ const logoMap = {
 
 
 const guideMap = {
+  "Bahrain (endurance)": "bahrain-endurance-lmgt3",
+  "Bahrain (outer)": "bahrain-outer-lmgt3",
+  "Bahrain (paddock)": "bahrain-paddock-lmgt3",
   "Bahrain (wec)": "bahrain-wec-lmgt3",
+  "COTA": "cota-lmgt3",
+  "COTA (national)": "cota-national-lmgt3",
+  "Circuit de la Sarthe": "circuit-de-la-sarthe-lmgt3",
+  "Circuit de la Sarthe (straight)": "circuit-de-la-sarthe-straight-lmgt3",
+  "Fuji (chicane)": "fuji-chicane-lmgt3",
+  "Fuji (classic)": "fuji-classic-lmgt3",
+  "Imola": "imola-lmgt3",
+  "Interlagos": "interlagos-lmgt3",
   "Monza": "monza-lmgt3",
+  "Monza (curvagrande)": "monza-curvagrande-lmgt3",
+  "Paul Ricard": "paul-ricard-lmgt3",
+  "Portimao": "portimao-lmgt3",
+  "Qatar": "qatar-lmgt3",
+  "Qatar (short)": "qatar-short-lmgt3",
+  "Sebring": "sebring-lmgt3",
+  "Sebring (school)": "sebring-school-lmgt3",
+  "Silverstone": "silverstone-lmgt3",
+  "Spa": "spa-lmgt3",
 };
 
 

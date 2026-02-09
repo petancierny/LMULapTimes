@@ -1,0 +1,534 @@
+# Source Needed Index
+
+Total missing items: 505
+
+## Bahrain (endurance) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 14 — Braking point
+- Turn 14 — Turn-in point
+- Turn 14 — Apex
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+
+## Bahrain (outer) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 14 — Braking point
+- Turn 14 — Turn-in point
+- Turn 14 — Apex
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+
+## Bahrain (paddock) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 14 — Braking point
+- Turn 14 — Turn-in point
+- Turn 14 — Apex
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+
+## Bahrain (WEC) - LMGT3 Track Guide
+- Turn 2 — Braking point
+- Turn 3 — Braking point
+- Turn 3 — Apex
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 12 — Braking point
+- Turn 15 — Braking point
+- Turn 15 — Apex
+
+## Circuit de la Sarthe (straight) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 14 — Braking point
+- Turn 14 — Turn-in point
+- Turn 14 — Apex
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+- Turn 16 — Braking point
+- Turn 16 — Turn-in point
+- Turn 16 — Apex
+- Turn 17 — Braking point
+- Turn 17 — Turn-in point
+- Turn 17 — Apex
+- Turn 18 — Braking point
+- Turn 18 — Turn-in point
+- Turn 18 — Apex
+- Turn 19 — Braking point
+- Turn 19 — Turn-in point
+- Turn 19 — Apex
+- Turn 20 — Braking point
+- Turn 20 — Turn-in point
+- Turn 20 — Apex
+- Turn 21 — Braking point
+- Turn 21 — Turn-in point
+- Turn 21 — Apex
+- Turn 22 — Braking point
+- Turn 22 — Turn-in point
+- Turn 22 — Apex
+- Turn 23 — Braking point
+- Turn 23 — Turn-in point
+- Turn 23 — Apex
+- Turn 24 — Braking point
+- Turn 24 — Turn-in point
+- Turn 24 — Apex
+- Turn 25 — Braking point
+- Turn 25 — Turn-in point
+- Turn 25 — Apex
+- Turn 26 — Braking point
+- Turn 26 — Turn-in point
+- Turn 26 — Apex
+- Turn 27 — Braking point
+- Turn 27 — Turn-in point
+- Turn 27 — Apex
+- Turn 28 — Braking point
+- Turn 28 — Turn-in point
+- Turn 28 — Apex
+- Turn 29 — Braking point
+- Turn 29 — Turn-in point
+- Turn 29 — Apex
+- Turn 30 — Braking point
+- Turn 30 — Turn-in point
+- Turn 30 — Apex
+- Turn 31 — Braking point
+- Turn 31 — Turn-in point
+- Turn 31 — Apex
+- Turn 32 — Braking point
+- Turn 32 — Turn-in point
+- Turn 32 — Apex
+- Turn 33 — Braking point
+- Turn 33 — Turn-in point
+- Turn 33 — Apex
+
+## COTA (national) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 14 — Braking point
+- Turn 14 — Turn-in point
+- Turn 14 — Apex
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+- Turn 16 — Braking point
+- Turn 16 — Turn-in point
+- Turn 16 — Apex
+- Turn 17 — Braking point
+- Turn 17 — Turn-in point
+- Turn 17 — Apex
+- Turn 18 — Braking point
+- Turn 18 — Turn-in point
+- Turn 18 — Apex
+- Turn 19 — Braking point
+- Turn 19 — Turn-in point
+- Turn 19 — Apex
+- Turn 20 — Braking point
+- Turn 20 — Turn-in point
+- Turn 20 — Apex
+
+## Fuji (chicane) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 14 — Braking point
+- Turn 14 — Turn-in point
+- Turn 14 — Apex
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+- Turn 16 — Braking point
+- Turn 16 — Turn-in point
+- Turn 16 — Apex
+
+## Interlagos - LMGT3 Track Guide
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+
+## Monza (curvagrande) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+
+## Monza - LMGT3 Track Guide
+- Turn 3 — Braking point
+- Turn 5 — Braking point
+- Turn 7 — Turn-in point
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 10 — Braking point
+
+## Qatar (short) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 14 — Braking point
+- Turn 14 — Turn-in point
+- Turn 14 — Apex
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+- Turn 16 — Braking point
+- Turn 16 — Turn-in point
+- Turn 16 — Apex
+
+## Sebring (school) - LMGT3 Track Guide
+- Turn 1 — Braking point
+- Turn 1 — Turn-in point
+- Turn 1 — Apex
+- Turn 2 — Braking point
+- Turn 2 — Turn-in point
+- Turn 2 — Apex
+- Turn 3 — Braking point
+- Turn 3 — Turn-in point
+- Turn 3 — Apex
+- Turn 4 — Braking point
+- Turn 4 — Turn-in point
+- Turn 4 — Apex
+- Turn 5 — Braking point
+- Turn 5 — Turn-in point
+- Turn 5 — Apex
+- Turn 6 — Braking point
+- Turn 6 — Turn-in point
+- Turn 6 — Apex
+- Turn 7 — Braking point
+- Turn 7 — Turn-in point
+- Turn 7 — Apex
+- Turn 8 — Braking point
+- Turn 8 — Turn-in point
+- Turn 8 — Apex
+- Turn 9 — Braking point
+- Turn 9 — Turn-in point
+- Turn 9 — Apex
+- Turn 10 — Braking point
+- Turn 10 — Turn-in point
+- Turn 10 — Apex
+- Turn 11 — Braking point
+- Turn 11 — Turn-in point
+- Turn 11 — Apex
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 14 — Braking point
+- Turn 14 — Turn-in point
+- Turn 14 — Apex
+- Turn 15 — Braking point
+- Turn 15 — Turn-in point
+- Turn 15 — Apex
+- Turn 16 — Braking point
+- Turn 16 — Turn-in point
+- Turn 16 — Apex
+- Turn 17 — Braking point
+- Turn 17 — Turn-in point
+- Turn 17 — Apex
+
+## Spa - LMGT3 Track Guide
+- Turn 12 — Braking point
+- Turn 12 — Turn-in point
+- Turn 12 — Apex
+- Turn 13 — Braking point
+- Turn 13 — Turn-in point
+- Turn 13 — Apex
+- Turn 18 — Braking point
+- Turn 18 — Turn-in point
+- Turn 18 — Apex
+- Turn 19 — Braking point
+- Turn 19 — Turn-in point
+- Turn 19 — Apex
