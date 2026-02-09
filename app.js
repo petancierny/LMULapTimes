@@ -36,7 +36,7 @@ const classTokens = new Set(classOrder);
 
 
 const layoutMap = {
-  "Bahrain (endurance)": "data/layouts/Bahrain_Endurance.png",
+  "Bahrain (endurance)": "data/layouts/Bahrain_endurance.png",
   "Bahrain (outer)": "data/layouts/Bahrain_Outer.png",
   "Bahrain (paddock)": "data/layouts/Bahrain_Paddock.png",
   "Bahrain (wec)": "data/layouts/Bahrain_WEC.png",
@@ -57,7 +57,7 @@ const layoutMap = {
   "Sebring": "data/layouts/Sebring_Default.png",
   "Sebring (school)": "data/layouts/Sebring_School.png",
   "Silverstone": "data/layouts/Silverstone.png",
-  "Spa": "data/layouts/SPA_Default.png",
+  "Spa": "data/layouts/Spa_Default.png",
 };
 
 
