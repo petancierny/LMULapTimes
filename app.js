@@ -2,9 +2,9 @@ const elements = {
   trackSelect: document.getElementById("trackSelect"),
   classSelect: document.getElementById("classSelect"),
   lastUpdated: document.getElementById("lastUpdated"),
-  patchValue: document.getElementById("patchValue"),
   trackName: document.getElementById("trackName"),
-  statusLine: document.getElementById("statusLine"),
+  guideToggle: document.getElementById("guideToggle"),
+  guideSection: document.getElementById("guideSection"),
   percentGrid: document.getElementById("percentGrid"),
   paceLegend: document.getElementById("paceLegend"),
   fastestCar: document.getElementById("fastestCar"),
@@ -36,22 +36,28 @@ const classTokens = new Set(classOrder);
 
 
 const layoutMap = {
-  "Bahrain (endurance)": "data/layouts/Bahrain_International_Circuit--Endurance_Circuit.svg",
-  "Bahrain (outer)": "data/layouts/Bahrain_International_Circuit--Outer_Circuit.svg",
-  "Bahrain (paddock)": "data/layouts/Bahrain_International_Circuit--Paddock_Circuit.svg",
-  "COTA": "data/layouts/COTA.svg",
-  "COTA (national)": "data/layouts/COTA_National_Circuit.png",
-  "Circuit de la Sarthe": "data/layouts/Circuit_de_la_Sarthe_track_map.svg",
-  "Fuji (classic)": "data/layouts/Circuit_Fuji.svg",
-  "Imola": "data/layouts/Imola_2009.svg",
-  "Interlagos": "data/layouts/Circuit_Interlagos.svg",
-  "Monza": "data/layouts/Monza_track_map.svg",
-  "Paul Ricard": "data/layouts/Paul_Ricard.svg",
-  "Portimao": "data/layouts/Portimao.svg",
-  "Qatar": "data/layouts/Qatar.svg",
-  "Sebring": "data/layouts/Sebring_International_Raceway.svg",
-  "Silverstone": "data/layouts/Silverstone_Circuit_2020.png",
-  "Spa": "data/layouts/Spa_Francorchamps_2007.jpg",
+  "Bahrain (endurance)": "data/layouts/Bahrain_Endurance.png",
+  "Bahrain (outer)": "data/layouts/Bahrain_Outer.png",
+  "Bahrain (paddock)": "data/layouts/Bahrain_Paddock.png",
+  "Bahrain (wec)": "data/layouts/Bahrain_WEC.png",
+  "COTA": "data/layouts/COTA_Default.png",
+  "COTA (national)": "data/layouts/COTA_National.png",
+  "Circuit de la Sarthe": "data/layouts/Circuit_de_la_sarthe.png",
+  "Circuit de la Sarthe (straight)": "data/layouts/Circuit_de_la_sarthe_mulsanne.png",
+  "Fuji (chicane)": "data/layouts/Fuji_Default.png",
+  "Fuji (classic)": "data/layouts/Fuji_Classic.png",
+  "Imola": "data/layouts/Imola.png",
+  "Interlagos": "data/layouts/Interlagos.png",
+  "Monza": "data/layouts/Monza_Default.png",
+  "Monza (curvagrande)": "data/layouts/Monza_CurvaGrande.png",
+  "Paul Ricard": "data/layouts/PaulRicard.png",
+  "Portimao": "data/layouts/Portimao.png",
+  "Qatar": "data/layouts/Qatar_Default.png",
+  "Qatar (short)": "data/layouts/Qatar_Short.png",
+  "Sebring": "data/layouts/Sebring_Default.png",
+  "Sebring (school)": "data/layouts/Sebring_School.png",
+  "Silverstone": "data/layouts/Silverstone.png",
+  "Spa": "data/layouts/SPA_Default.png",
 };
 
 
@@ -108,7 +114,7 @@ init();
 function init() {
   const csvText = window.LAPTIME_CSV;
   if (!csvText) {
-    elements.statusLine.textContent = "Lap time data not found.";
+    console.warn("Lap time data not found.");
     return;
   }
 
@@ -128,6 +134,16 @@ function init() {
 
   elements.trackSelect.value = state.selectedTrack;
   elements.classSelect.value = state.selectedClass;
+
+  if (elements.guideToggle && elements.guideSection) {
+    const applyGuideVisibility = () => {
+      const isHidden = !elements.guideToggle.checked;
+      elements.guideSection.hidden = isHidden;
+      elements.guideSection.classList.toggle("is-hidden", isHidden);
+    };
+    elements.guideToggle.addEventListener("change", applyGuideVisibility);
+    applyGuideVisibility();
+  }
 
   elements.trackSelect.addEventListener("change", (event) => {
     state.selectedTrack = event.target.value;
@@ -258,7 +274,6 @@ function render() {
 
   elements.lastUpdated.textContent = state.lastUpdated || "Unknown";
   elements.trackName.textContent = record ? record.track : "No data";
-  elements.patchValue.textContent = record?.patch || "—";
   elements.fastestCar.textContent = record?.fastestCar || "Not listed";
   elements.fastestLap.textContent = record?.fastestLap || "—";
   elements.classAverage.textContent = record?.classAvg || "—";
@@ -273,9 +288,6 @@ function render() {
   renderGuide(record);
   updateUserPace();
 
-  elements.statusLine.textContent = record
-    ? `${state.data.length} laps loaded · ${record.track} · ${record.className}`
-    : "No data for this combination.";
 }
 
 function renderPercentGrid(record) {
@@ -301,6 +313,178 @@ function renderLegend() {
     .join("");
 }
 
+function createImageElement(src, alt, className) {
+  const img = document.createElement("img");
+  img.className = className;
+  img.src = src;
+  img.alt = alt;
+  img.loading = "lazy";
+  img.decoding = "async";
+  return img;
+}
+
+function createTrimmedCanvas(src, alt, className) {
+  const canvas = document.createElement("canvas");
+  canvas.className = className;
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", alt);
+
+  const img = new Image();
+  img.decoding = "async";
+  img.loading = "eager";
+  img.crossOrigin = "anonymous";
+
+  img.onload = () => {
+    const width = img.naturalWidth;
+    const height = img.naturalHeight;
+    const tempCanvas = document.createElement("canvas");
+    tempCanvas.width = width;
+    tempCanvas.height = height;
+
+    const ctx = tempCanvas.getContext("2d", { willReadFrequently: true });
+    if (!ctx) {
+      canvas.replaceWith(createImageElement(src, alt, className));
+      return;
+    }
+
+    ctx.drawImage(img, 0, 0);
+    const { data } = ctx.getImageData(0, 0, width, height);
+
+    let minX = width;
+    let minY = height;
+    let maxX = -1;
+    let maxY = -1;
+    const alphaThreshold = 32;
+    const colorThreshold = 22;
+    const sampleSize = Math.min(6, width, height);
+    const rowCounts = new Uint32Array(height);
+    const colCounts = new Uint32Array(width);
+
+    const sampleCorner = (startX, startY) => {
+      let r = 0;
+      let g = 0;
+      let b = 0;
+      let count = 0;
+      for (let y = 0; y < sampleSize; y++) {
+        for (let x = 0; x < sampleSize; x++) {
+          const px = startX + x;
+          const py = startY + y;
+          if (px < 0 || px >= width || py < 0 || py >= height) continue;
+          const idx = (py * width + px) * 4;
+          r += data[idx];
+          g += data[idx + 1];
+          b += data[idx + 2];
+          count += 1;
+        }
+      }
+      return count ? [r / count, g / count, b / count] : [0, 0, 0];
+    };
+
+    const corners = [
+      sampleCorner(0, 0),
+      sampleCorner(width - sampleSize, 0),
+      sampleCorner(0, height - sampleSize),
+      sampleCorner(width - sampleSize, height - sampleSize),
+    ];
+    const bg = corners.reduce(
+      (acc, c) => [acc[0] + c[0], acc[1] + c[1], acc[2] + c[2]],
+      [0, 0, 0]
+    ).map((v) => v / corners.length);
+
+    const isBackground = (r, g, b, a) => {
+      if (a <= alphaThreshold) return true;
+      const dr = r - bg[0];
+      const dg = g - bg[1];
+      const db = b - bg[2];
+      return Math.sqrt(dr * dr + dg * dg + db * db) <= colorThreshold;
+    };
+
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      const a = data[i + 3];
+      if (isBackground(r, g, b, a)) continue;
+      const idx = i >> 2;
+      const x = idx % width;
+      const y = Math.floor(idx / width);
+      rowCounts[y] += 1;
+      colCounts[x] += 1;
+      if (x < minX) minX = x;
+      if (y < minY) minY = y;
+      if (x > maxX) maxX = x;
+      if (y > maxY) maxY = y;
+    }
+
+    if (maxX === -1) {
+      canvas.width = width;
+      canvas.height = height;
+      const outCtx = canvas.getContext("2d");
+      if (outCtx) {
+        outCtx.drawImage(img, 0, 0);
+      }
+      return;
+    }
+
+    const minRowFill = Math.max(3, Math.floor(width * 0.002));
+    const minColFill = Math.max(3, Math.floor(height * 0.002));
+    let top = 0;
+    let bottom = height - 1;
+    let left = 0;
+    let right = width - 1;
+
+    while (top < height && rowCounts[top] < minRowFill) top += 1;
+    while (bottom > top && rowCounts[bottom] < minRowFill) bottom -= 1;
+    while (left < width && colCounts[left] < minColFill) left += 1;
+    while (right > left && colCounts[right] < minColFill) right -= 1;
+
+    if (top <= bottom && left <= right) {
+      minX = Math.min(minX, left);
+      minY = Math.min(minY, top);
+      maxX = Math.max(maxX, right);
+      maxY = Math.max(maxY, bottom);
+    }
+
+    const padding = 4;
+    minX = Math.max(0, minX - padding);
+    minY = Math.max(0, minY - padding);
+    maxX = Math.min(width - 1, maxX + padding);
+    maxY = Math.min(height - 1, maxY + padding);
+
+    const cropWidth = maxX - minX + 1;
+    const cropHeight = maxY - minY + 1;
+    canvas.width = cropWidth;
+    canvas.height = cropHeight;
+
+    const outCtx = canvas.getContext("2d");
+    if (outCtx) {
+      outCtx.imageSmoothingEnabled = true;
+      outCtx.drawImage(img, minX, minY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+    }
+  };
+
+  img.onerror = () => {
+    canvas.replaceWith(createImageElement(src, alt, className));
+  };
+
+  img.src = src;
+  return canvas;
+}
+
+function setLayoutContent(mediaEl, label) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "layout-inner";
+  wrapper.appendChild(mediaEl);
+
+  const labelEl = document.createElement("div");
+  labelEl.className = "layout-label";
+  labelEl.textContent = label;
+  wrapper.appendChild(labelEl);
+
+  elements.layoutStage.innerHTML = "";
+  elements.layoutStage.appendChild(wrapper);
+}
+
 function renderLayout(record) {
   if (!record) {
     elements.layoutStage.textContent = "Select a track to preview the layout.";
@@ -309,33 +493,27 @@ function renderLayout(record) {
 
   const asset = layoutMap[record.track];
   if (asset) {
-    elements.layoutStage.innerHTML = `
-      <div class="layout-inner">
-        <img class="track-image" src="${asset}" alt="${record.track} layout" />
-        <div class="layout-label">${record.track}</div>
-      </div>
-    `;
+    const media = createTrimmedCanvas(asset, `${record.track} layout`, "track-image");
+    setLayoutContent(media, record.track);
     return;
   }
 
   const logo = logoMap[record.track];
   if (logo) {
-    elements.layoutStage.innerHTML = `
-      <div class="layout-inner">
-        <img class="logo-image" src="${logo}" alt="${record.track} logo" />
-        <div class="layout-label">${record.track}</div>
-      </div>
-    `;
+    const media = createTrimmedCanvas(logo, `${record.track} logo`, "logo-image");
+    setLayoutContent(media, record.track);
     return;
   }
 
   const svg = buildTrackSvg(record.track);
-  elements.layoutStage.innerHTML = `
-    <div class="layout-inner">
-      ${svg}
-      <div class="layout-label">${record.track}</div>
-    </div>
+  const wrapper = document.createElement("div");
+  wrapper.className = "layout-inner";
+  wrapper.innerHTML = `
+    ${svg}
+    <div class="layout-label">${record.track}</div>
   `;
+  elements.layoutStage.innerHTML = "";
+  elements.layoutStage.appendChild(wrapper);
 }
 
 

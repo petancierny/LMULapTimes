@@ -12,19 +12,18 @@
         <div class="hero__copy">
           <p class="eyebrow">LMU Lap Time Benchmarks</p>
           <h1>Choose a track and class to gauge your pace.</h1>
-          <p class="subtitle">
-            Compare your laps against curated percentage targets, highlight the fastest cars, and
-            keep your progress visible at a glance.
-          </p>
         </div>
         <div class="hero__meta">
-          <div class="meta-card">
-            <span class="meta-label">Data updated</span>
-            <span class="meta-value" id="lastUpdated">—</span>
-          </div>
-          <div class="meta-card">
-            <span class="meta-label">Patch focus</span>
-            <span class="meta-value" id="patchValue">—</span>
+          <div class="meta-row">
+            <div class="meta-card">
+              <span class="meta-label">Data updated</span>
+              <span class="meta-value" id="lastUpdated">—</span>
+            </div>
+            <label class="toggle">
+              <span class="toggle-label">Track guide</span>
+              <input type="checkbox" id="guideToggle" checked />
+              <span class="toggle-pill" aria-hidden="true"></span>
+            </label>
           </div>
         </div>
       </header>
@@ -39,7 +38,24 @@
             <label class="field-label" for="classSelect">Car class</label>
             <select id="classSelect" class="select"></select>
           </div>
-          <div class="status" id="statusLine">Loading data…</div>
+          <section class="your-pace" aria-label="Your lap time">
+            <div class="card-header">
+              <h2>Your lap</h2>
+              <span class="card-subtitle">Paste your best lap to compare</span>
+            </div>
+            <div class="field">
+              <label class="field-label" for="yourTime">Lap time (m:ss.xx)</label>
+              <input id="yourTime" class="input" placeholder="1:58.73" autocomplete="off" />
+            </div>
+            <div class="pace-output">
+              <div class="pace-pill" id="pacePill">—</div>
+              <div>
+                <div class="pace-label">Your pace</div>
+                <div class="pace-value" id="paceValue">—</div>
+                <div class="pace-delta" id="paceDelta">—</div>
+              </div>
+            </div>
+          </section>
         </section>
 
         <section class="card layout-card" aria-label="Track layout">
@@ -84,26 +100,7 @@
           </div>
         </section>
 
-        <section class="card your-pace" aria-label="Your lap time">
-          <div class="card-header">
-            <h2>Your lap</h2>
-            <span class="card-subtitle">Paste your best lap to compare</span>
-          </div>
-          <div class="field">
-            <label class="field-label" for="yourTime">Lap time (m:ss.xx)</label>
-            <input id="yourTime" class="input" placeholder="1:58.73" autocomplete="off" />
-          </div>
-          <div class="pace-output">
-            <div class="pace-pill" id="pacePill">—</div>
-            <div>
-              <div class="pace-label">Your pace</div>
-              <div class="pace-value" id="paceValue">—</div>
-              <div class="pace-delta" id="paceDelta">—</div>
-            </div>
-          </div>
-        </section>
-
-        <section class="card guide" aria-label="Track guide">
+        <section class="card guide" id="guideSection" aria-label="Track guide">
           <div class="card-header">
             <h2>Track guide</h2>
             <span class="card-subtitle" id="guideSubtitle">LMGT3 focus</span>

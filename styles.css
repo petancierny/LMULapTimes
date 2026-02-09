@@ -11,6 +11,7 @@
   --border: rgba(255, 255, 255, 0.08);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
   --radius: 24px;
+  --layout-height: clamp(200px, 30vw, 260px);
 }
 
 * {
@@ -49,7 +50,7 @@ body::after {
 .app-shell {
   position: relative;
   z-index: 1;
-  padding: 48px clamp(20px, 6vw, 80px) 60px;
+  padding: 28px clamp(16px, 4vw, 56px) 36px;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -58,8 +59,8 @@ body::after {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 32px;
-  margin-bottom: 40px;
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
 .hero__copy {
@@ -72,12 +73,12 @@ body::after {
   font-size: 12px;
   color: var(--accent-strong);
   font-weight: 700;
-  margin: 0 0 12px;
+  margin: 0 0 8px;
 }
 
 h1 {
   font-size: clamp(32px, 4vw, 54px);
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   line-height: 1.05;
 }
 
@@ -89,17 +90,80 @@ h1 {
 }
 
 .hero__meta {
-  display: grid;
-  gap: 16px;
-  min-width: 240px;
+  display: inline-grid;
+  gap: 12px;
+  justify-items: start;
+  align-items: start;
+}
+
+.meta-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .meta-card {
   background: linear-gradient(145deg, rgba(21, 24, 32, 0.95), rgba(15, 17, 24, 0.98));
   border-radius: 18px;
-  padding: 16px 18px;
+  padding: 10px 12px;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  width: max-content;
+  min-width: 0;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle-pill {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.toggle-pill::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  background: var(--accent-cool);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.toggle input:checked + .toggle-pill {
+  background: rgba(54, 199, 209, 0.24);
+  border-color: rgba(54, 199, 209, 0.4);
+}
+
+.toggle input:checked + .toggle-pill::after {
+  transform: translateX(20px);
 }
 
 .meta-label {
@@ -119,14 +183,14 @@ h1 {
 
 .grid {
   display: grid;
-  gap: 24px;
+  gap: 16px;
   grid-template-columns: repeat(12, 1fr);
 }
 
 .card {
   background: linear-gradient(160deg, rgba(21, 24, 32, 0.98), rgba(17, 20, 28, 0.96));
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 18px;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
 }
@@ -134,32 +198,32 @@ h1 {
 .controls {
   grid-column: span 4;
   display: grid;
-  gap: 20px;
+  gap: 12px;
 }
 
 .layout-card {
   grid-column: span 8;
   display: grid;
-  gap: 16px;
-  min-height: 260px;
+  gap: 12px;
+  min-height: 220px;
 }
 
 .benchmarks {
   grid-column: span 8;
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .stats {
   grid-column: span 4;
   display: grid;
-  gap: 20px;
+  gap: 14px;
 }
 
 .your-pace {
-  grid-column: span 12;
   display: grid;
-  gap: 18px;
+  gap: 16px;
+  margin-top: 6px;
 }
 
 .card-header {
@@ -171,7 +235,17 @@ h1 {
 
 .card-header h2 {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
+}
+
+.controls .card-header h2 {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.controls .card-subtitle {
+  font-size: 10px;
+  letter-spacing: 0.14em;
 }
 
 .card-subtitle {
@@ -208,32 +282,25 @@ h1 {
   border-color: rgba(225, 6, 0, 0.6);
 }
 
-.status {
-  font-size: 14px;
-  color: var(--muted);
-  background: rgba(54, 199, 209, 0.12);
-  border-radius: 12px;
-  padding: 10px 14px;
-}
-
 .layout-stage {
   background: linear-gradient(135deg, rgba(54, 199, 209, 0.12), rgba(225, 6, 0, 0.12));
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 210px;
+  min-height: var(--layout-height);
+  height: var(--layout-height);
 }
 
 .percent-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 10px;
 }
 
 .percent-item {
   border-radius: 16px;
-  padding: 14px;
+  padding: 12px;
   background: rgba(54, 199, 209, 0.12);
   border: 1px solid transparent;
   display: grid;
@@ -260,7 +327,7 @@ h1 {
 .legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 20px;
+  gap: 8px 16px;
   font-size: 13px;
   color: var(--muted);
 }
@@ -290,6 +357,10 @@ h1 {
 
 .field {
   max-width: 300px;
+}
+
+.controls .field {
+  max-width: none;
 }
 
 .pace-output {
@@ -329,7 +400,7 @@ h1 {
 }
 
 .footer {
-  margin-top: 40px;
+  margin-top: 24px;
   font-size: 13px;
   color: var(--muted);
 }
@@ -342,6 +413,10 @@ h1 {
   .your-pace {
     grid-column: span 12;
   }
+
+  .percent-grid {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
 }
 
 @media (max-width: 600px) {
@@ -352,16 +427,21 @@ h1 {
   .card {
     padding: 18px;
   }
+
+  .percent-grid {
+    grid-template-columns: minmax(120px, 1fr);
+  }
 }
 
 
 .layout-inner {
   position: relative;
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 4px;
 }
 
 .track-svg {
@@ -370,16 +450,20 @@ h1 {
 }
 
 .track-image {
-  width: min(100%, 420px);
-  height: auto;
-  max-height: 220px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 620px;
+  max-height: calc(var(--layout-height) - 24px);
   object-fit: contain;
 }
 
 .logo-image {
-  width: min(100%, 320px);
-  height: auto;
-  max-height: 180px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 440px;
+  max-height: calc(var(--layout-height) - 40px);
   object-fit: contain;
   filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.45));
 }
@@ -428,6 +512,10 @@ h1 {
   grid-column: span 12;
   display: grid;
   gap: 16px;
+}
+
+.guide.is-hidden {
+  display: none !important;
 }
 
 .guide-status {
